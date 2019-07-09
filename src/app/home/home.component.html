@@ -1,0 +1,51 @@
+<div class="container ">
+    <div class="input-group mb-3 search-input">
+        <input
+            type="text"
+            class="form-control"
+            placeholder="search by name"
+            [(ngModel)]="searchTerm"
+            aria-describedby="button-addon2"/>
+    </div>
+    <div class="row ">
+        <div *ngFor="let instructor of instructors$ | instructorFilter:searchTerm">
+            <div class="card-group">
+                <div class="card" style="width: 16rem; height: 30rem">
+                    <!-- I couldn`t find how to render the image. Error 404
+                        <img class="card-img-top"  [src]="instructor.image.s3Key" src={{instructor.image.s3Key}} alt="here should be an image"> -->
+                    <div class="card-body" (click)="onClick(instructor.id)">
+                        <div class="cursor">
+                            <h2 class="card-title">{{instructor.displayName}}</h2>
+                            <h5 class="card-text"><b>Country:</b> {{instructor.location.country}} </h5>
+                            <b>Languages:</b>
+                            <p class="card-text row" *ngFor="let languages of instructor.languages">
+                                {{languages.configValue}}
+                            </p>
+                            <b>Interests:</b>
+                            <!-- "let interests of instructor.interests" for iteration in array of objects -->
+                            <p class="row" *ngFor="let interests of instructor.interests">
+                                {{interests.title}}
+                            </p>
+                            <p class="card-text"> <b>Rate:</b> {{instructor.startRate}} </p>
+                            <button
+                            routerLink="/offer"
+                            type="button"
+                            class="btn btn-primary"
+                            data-toggle="modal"
+                            data-target="#exampleModal">Send offer</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- how to pass the state data to the routerLink??????
+My ideas were: 1. From component to component [routerLink]="['/profile', instructor.id]" 
+but in my case it literally sends an id, not the api data...
+                2. Make parent/child component out of home/profile. Unfortunately, I didn`t
+figure out how to do that.
+                3. Use [state] which, as I understood is a new feature, and it`s not so much
+information about it. 
+The logic part is clear for me but implementation with Angular is a gap.-->

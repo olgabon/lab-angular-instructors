@@ -1,0 +1,89 @@
+<div
+    class="modal fade"
+    id="exampleModal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">New Offer</h5>
+                <button
+                    routerLink="/"
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="text-center">
+                    <h1>Name</h1>
+                    <p>Instructor</p>
+                </div>
+                <form class="row justify-content-around">
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Daily Rate</label>
+                        <input
+                            type="number"
+                            class="form-control"
+                            id="recipient-name"
+                            name="rate"
+                            placeholder="$"
+                            style="width: 10rem"
+                            [(ngModel)]="rateValue"></div>
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Travel & Expenses</label>
+                        <input
+                            type="number"
+                            min="0"
+                            class="form-control"
+                            name="travel"
+                            id="recipient-name"
+                            placeholder="$"
+                            style="width: 10rem"
+                            [(ngModel)]="travelValue"></div>
+                  </form>
+                  <form>
+                      <div class="form-group">
+                          <label for="recipient-name" class="col-form-label">Contact e-mail</label>
+                          <small id="emailHelp" class="form-text text-muted">
+                              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at porttitor
+                              sem. Aliquam erat volutpat. Donec placerat nisl magna, et faucibus arcu
+                              condimentum sed.</small>
+                          <input type="email" class="form-control" id="recipient-name" name="email" [(ngModel)]="emailValue">
+                      </div>
+                      <div class="form-group">
+                          <label for="recipient-name" class="col-form-label">Language of Delivery</label>
+                          <small id="emailHelp" class="form-text text-muted">
+                              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at porttitor
+                              sem. Aliquam erat volutpat. Donec placerat nisl magna, et faucibus arcu
+                              condimentum sed.</small>
+                          <select type="text" class="form-control" id="recipient-name"></select>
+                      </div>
+                      <div class="form-group">
+                          <label for="message-text" class="col-form-label">Additional comments to Buyer Name's</label>
+                          <textarea
+                              class="form-control"
+                              id="message-text"
+                              name="comments"
+                              maxlength="120"
+                              [(ngModel)]="commentsValue"></textarea>
+                      </div>
+                  </form>
+                </div>
+            <div class="modal-footer">
+                <button
+                    routerLink="/"
+                    type="button"
+                    class="btn btn-secondary"
+                    data-dismiss="modal">Cancel</button>
+                <button click="onAddPost()" type="button" class="btn btn-primary">Send new offer</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Offer component is not finished by the lack of time -->
